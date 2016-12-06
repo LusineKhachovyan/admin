@@ -201,3 +201,143 @@
 }
 
 /* /save button */
+/* Schedule */
+th {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+}
+
+.schedule-header li a {
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.schedule-table {
+  overflow-x: visible;
+}
+
+.schedule-table-body td {
+  padding: 12px 3px !important;
+}
+.schedule-table-body td .checker span {
+  color: green;
+  border: 2px solid #ddd;
+}
+.schedule-table-body td .checker span.checked {
+  border-color: transparent;
+}
+
+.working-hours {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.working-hours .work-time p {
+  text-align: left;
+  margin: 0;
+  padding: 3px;
+}
+.working-hours .work-time .work-time-input {
+  padding: 3px;
+  border-style: solid;
+  font-weight: normal;
+}
+.working-hours .work-time .work-time-input:-moz-placeholder {
+  font-size: 10px;
+  color: #d9d9d9;
+}
+.working-hours .work-time .work-time-input::-moz-placeholder {
+  font-size: 10px;
+  color: #d9d9d9;
+}
+.working-hours .work-time .work-time-input:-ms-input-placeholder {
+  font-size: 10px;
+  color: #d9d9d9;
+}
+.working-hours .work-time .work-time-input::-webkit-input-placeholder {
+  font-size: 10px;
+  color: #d9d9d9;
+}
+.working-hours .work-time-divider {
+  padding: 0 5px 10px;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  color: #ddd;
+}
+
+#part-time-schedule .table-item {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+#part-time-schedule .table-item label {
+  margin-bottom: 0;
+  font-weight: 600;
+  width: 50%;
+}
+#part-time-schedule .table-item .days-number {
+  width: 30%;
+}
+#part-time-schedule .work-time {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+#part-time-schedule .work-time p {
+  margin: 0 10px;
+}
+
+.part-time-table-col {
+  width: calc(100% / 3);
+}
+
+.start-date p {
+  font-weight: 600;
+}
+.start-date .start-date-input {
+  border-bottom-style: solid;
+}
+
+.save {
+  padding: 20px 0 0;
+}
+
+/* /schedule */
+/* Info */
+#info .info-title i {
+  font-size: 20px;
+}
+
+.employee-avatar {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+}
+
+.employee-info-input {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.employee-info-input .control-label {
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  padding: 5px;
+  font-weight: 500;
+}
+.employee-info-input input.form-control {
+  padding: 0 20px 0 10px;
+  font-size: 15px;
+}
+
+/* /info */
