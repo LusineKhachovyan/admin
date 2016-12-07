@@ -202,109 +202,180 @@
 
 /* /save button */
 /* Schedule */
-th {
-  text-align: center;
+#schedule {
+  display: inline-block;
 }
 
-td {
-  text-align: center;
+#schedule-type {
+  width: 50%;
+  float: left;
+  line-height: 27px;
 }
-
-.schedule-header li a {
-  text-transform: capitalize;
+#schedule-type .schedule-type {
   font-size: 14px;
 }
 
-.schedule-table {
-  overflow-x: visible;
-}
-
-.schedule-table-body td {
-  padding: 12px 3px !important;
-}
-.schedule-table-body td .checker span {
-  color: green;
-  border: 2px solid #ddd;
-}
-.schedule-table-body td .checker span.checked {
-  border-color: transparent;
-}
-
-.working-hours {
+#template {
   display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center;
-  align-items: center;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  width: 50%;
 }
-.working-hours .work-time p {
-  text-align: left;
+#template .templates {
+  width: 50%;
+}
+
+#full-time-schedule {
+  margin-bottom: 50px;
+}
+#full-time-schedule .full-time-wrap {
+  display: -webkit-flex;
+  display: flex;
+  border: 1px solid #ddd;
+}
+
+.full-time-item {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  border-left: 1px solid #ddd;
+}
+.full-time-item:first-child {
+  border-left: none;
+}
+.full-time-item .full-time-header {
+  border-bottom: 1px solid #ddd;
   margin: 0;
-  padding: 3px;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 5px;
+  text-align: center;
 }
-.working-hours .work-time .work-time-input {
-  padding: 3px;
-  border-style: solid;
+
+.full-time-content {
+  display: -webkit-flex;
+  display: flex;
+  padding: 10px;
+}
+.full-time-content .work-time {
+  width: 55px;
+  text-align: center;
+}
+.full-time-content .work-time .work-time-input {
+  padding: 0 5px;
+  font-size: 17px;
+  font-weight: normal;
+  height: auto;
+  border: 1px solid #ddd;
+}
+.full-time-content .work-time .work-time-input:-moz-placeholder {
+  font-size: 14px;
+  color: #d9d9d9;
   font-weight: normal;
 }
-.working-hours .work-time .work-time-input:-moz-placeholder {
-  font-size: 10px;
+.full-time-content .work-time .work-time-input::-moz-placeholder {
+  font-size: 14px;
   color: #d9d9d9;
+  font-weight: normal;
 }
-.working-hours .work-time .work-time-input::-moz-placeholder {
-  font-size: 10px;
+.full-time-content .work-time .work-time-input:-ms-input-placeholder {
+  font-size: 14px;
   color: #d9d9d9;
+  font-weight: normal;
 }
-.working-hours .work-time .work-time-input:-ms-input-placeholder {
-  font-size: 10px;
+.full-time-content .work-time .work-time-input::-webkit-input-placeholder {
+  font-size: 14px;
   color: #d9d9d9;
+  font-weight: normal;
 }
-.working-hours .work-time .work-time-input::-webkit-input-placeholder {
-  font-size: 10px;
-  color: #d9d9d9;
-}
-.working-hours .work-time-divider {
-  padding: 0 5px 10px;
+.full-time-content .work-time-divider {
+  padding: 5px;
   -webkit-align-self: flex-end;
   align-self: flex-end;
   color: #ddd;
 }
+.full-time-content .work-time-divider i {
+  font-size: 10px;
+}
 
-#part-time-schedule .table-item {
+.time-content {
+  height: 100%;
+}
+.time-content .time {
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+}
+.time-content .time p {
+  padding: 18px 0 8px;
+  margin: 0;
+}
+
+.check-input {
+  text-align: center;
+  padding-top: 10px;
+}
+.check-input .checker span {
+  border: 2px solid #e6e6e6;
+}
+.check-input .checker span.checked {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+  color: #fff;
+}
+
+#part-time-schedule {
+  display: none;
+}
+#part-time-schedule .part-time-wrap {
+  border: 1px solid #ddd;
+}
+
+.part-time-item {
+  padding: 20px 0;
   display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center;
-  align-items: center;
+}
+.part-time-item:first-child {
+  border-bottom: 1px solid #ddd;
+}
+.part-time-item:last-child {
+  padding: 10px 0;
+}
+.part-time-item .table-item {
+  display: -webkit-flex;
+  display: flex;
   -webkit-justify-content: center;
   justify-content: center;
+  margin: 0 10px 0;
+}
+.part-time-item .table-item label {
   margin-bottom: 0;
+  font-weight: 500;
+  width: 60%;
 }
-#part-time-schedule .table-item label {
-  margin-bottom: 0;
-  font-weight: 600;
-  width: 50%;
+.part-time-item .table-item select {
+  width: 40%;
 }
-#part-time-schedule .table-item .days-number {
-  width: 30%;
+.part-time-item .table-item .start-date-input {
+  border-bottom-style: solid;
+  padding: 0 10px;
 }
-#part-time-schedule .work-time {
+
+.part-time-content {
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: center;
   align-items: center;
+  margin-right: 20px;
+  padding: 5px;
 }
-#part-time-schedule .work-time p {
-  margin: 0 10px;
-}
-
-.part-time-table-col {
-  width: calc(100% / 3);
-}
-
-.start-date p {
-  font-weight: 600;
-}
-.start-date .start-date-input {
-  border-bottom-style: solid;
+.part-time-content p {
+  margin-bottom: 0;
+  font-weight: 500;
 }
 
 .save {

@@ -29,6 +29,9 @@
 	<script type="text/javascript" src="assets/js/plugins/ui/drilldown.js"></script>
 	<!-- /core JS files -->
    
+    <!-- Custom js -->
+    <script src="assets/js/custom.js"></script>
+    <!-- /custom js -->
     
     <!-- Theme JS files -->
     <script type="text/javascript" src="assets/js/plugins/tables/footable/footable.min.js"></script>
@@ -43,6 +46,7 @@
 
     <script type="text/javascript" src="assets/js/plugins/ui/moment/moment.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins/pickers/daterangepicker.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/pickers/anytime.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins/pickers/pickadate/picker.js"></script>
     <script type="text/javascript" src="assets/js/plugins/pickers/pickadate/picker.date.js"></script>
     <script type="text/javascript" src="assets/js/plugins/pickers/pickadate/picker.time.js"></script>
@@ -1134,411 +1138,331 @@
 				<!-- Schedule -->
 
                 <div class="panel" id="schedule">
+                   
+                    <div class="panel-heading info-title">
+                        <h5 class="panel-title"><i class="icon-design position-left pb-5"></i>График работы</h5>
+                    </div>
 
-                    <div class="tabbable">
-
-                        <ul class="nav nav-tabs nav-tabs-highlight schedule-header">
-                            <li class="active"><a href="#full-time-schedule" data-toggle="tab" class="text-semibold">Фиксированный график</a></li>
-                            <li><a href="#part-time-schedule" data-toggle="tab" class="text-semibold">Неполный график</a></li>
-                        </ul>
-
-                        <div class="tab-content">
+                    <div class="panel-body">
+                       
+                        <div class="form-group" id="schedule-type">
+                            <label class="display-block text-semibold mb-30">Тип</label>
+                            <label class="radio-inline text-semibold schedule-type">
+                                <input type="radio" name="radio-inline-left" class="styled" checked="checked" id="full-time">
+                                Фиксированный
+                            </label>
+                            <label class="radio-inline text-semibold schedule-type">
+                                <input type="radio" name="radio-inline-left" class="styled" id="part-time">
+                                Цикличний
+                            </label>
+                        </div>
+                        
+                        <div class="form-group" id="template">
+                            <div class="templates">
+                                <label class="control-label text-semibold">Шаблоны</label>
+                                <select name="select" class="form-control">
+                                    <option>Загрузить шаблон</option>
+                                    <option value="template-1">шаблон 1</option>
+                                    <option value="template-2">шаблон 2</option>
+                                    <option value="template-3">шаблон 3</option>
+                                </select>
+                            </div>
+                            <div class="template-button">
+                                <button type="submit" class="btn btn-primary btn-xs btn-template">Сохранить как шаблон</button>
+                            </div>
+                        </div>
+                        
+                        <div class="schedules">
+                            
                             <!-- Full-time employee schedule -->
-                            <div class="tab-pane has-padding active" id="full-time-schedule">
+                            
+                            <div id="full-time-schedule">
 
-                                <div class="table-responsive schedule-table">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Дни недели</th>
-                                                <th>Понедельник</th>
-                                                <th>Вторник</th>
-                                                <th>Среда</th>
-                                                <th>Четверг</th>
-                                                <th>Пятница</th>
-                                                <th>Суббота</th>
-                                                <th>Воскресенье</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="schedule-table-body">
-                                            <tr class="check-input">
-                                               <td></td>
-                                                <td>
-                                                    <input type="checkbox" class="styled">
-                                                </td>
-                                                <td>
-                                                    <input type="checkbox" class="styled">
-                                                </td>
-                                                <td>
-                                                    <input type="checkbox" class="styled">
-                                                </td>
-                                                <td>
-                                                    <input type="checkbox" class="styled">
-                                                </td>
-                                                <td>
-                                                    <input type="checkbox" class="styled">
-                                                </td>
-                                                <td>
-                                                    <input type="checkbox" class="styled">
-                                                </td>
-                                                <td>
-                                                    <input type="checkbox" class="styled">
-                                                </td>
-                                            </tr>
-                                            <tr class="time-input">
-                                                <td>Работает</td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Перерыв</td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                               <div class="full-time-wrap">
+
+                                    <div class="full-time-item">
+                                        <h6 class="full-time-header">Дни недели</h6>
+                                        <div class="full-time-content time-content">
+                                             <div class="time">
+                                                <p>Работа</p>
+                                                <p>Перерыв</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="full-time-item">
+                                        <h6 class="full-time-header">Понедельник</h6>
+                                        <div class="check-input">
+                                            <input type="checkbox" class="styled">
+                                        </div>    
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="full-time-item">
+                                        <h6 class="full-time-header">Вторник</h6>
+                                        <div class="check-input">
+                                            <input type="checkbox" class="styled">
+                                        </div>  
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="full-time-item">
+                                        <h6 class="full-time-header">Среда</h6>
+                                        <div class="check-input">
+                                            <input type="checkbox" class="styled">
+                                        </div>  
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="full-time-item">
+                                        <h6 class="full-time-header">Четверг</h6>
+                                        <div class="check-input">
+                                            <input type="checkbox" class="styled">
+                                        </div>  
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <div class="full-time-item">
+                                        <h6 class="full-time-header">Пятница</h6>
+                                        <div class="check-input">
+                                            <input type="checkbox" class="styled">
+                                        </div>  
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <div class="full-time-item">
+                                        <h6 class="full-time-header">Суббота</h6>
+                                        <div class="check-input">
+                                            <input type="checkbox" class="styled">
+                                        </div>  
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="full-time-item">
+                                        <h6 class="full-time-header">Воскресенье</h6>
+                                        <div class="check-input">
+                                            <input type="checkbox" class="styled">
+                                        </div>  
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                        <div class="full-time-content">
+                                            <div class="input-group work-time work-time-start">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                            </div>
+                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                            <div class="input-group work-time work-time-end">
+                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="save clearfix">
-                                    <button type="button" class="btn btn-primary pull-right">сохранить</button>
+                                    <button type="submit" class="btn btn-primary btn-xs pull-right">сохранить</button>
                                 </div>
 
                             </div>
+                            
                             <!-- /full-time employee table -->
 
+                           
                             <!-- Part-time employee schedule -->
-                            <div class="tab-pane has-padding" id="part-time-schedule">
 
-                                <div class="table-responsive schedule-table">
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                            <tr>
-                                                <td class="part-time-table-col">
-                                                   <div class="form-group table-item ">
-                                                        <label class="control-label">Работает</label>
-                                                        <select name="select" class="form-control days-number text-center">
-                                                            <option>Выбрать</option>
-                                                            <option value="opt1">1 день</option>
-                                                            <option value="opt2">2 дня</option>
-                                                            <option value="opt3">3 дня</option>
-                                                            <option value="opt4">4 дня</option>
-                                                            <option value="opt5">5 дней</option>
-                                                            <option value="opt6">6 дней</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
-                                                <td class="part-time-table-col">
-                                                    <div class="form-group table-item ">
-                                                        <label class="control-label">Не работает</label>
-                                                        <select name="select" class="form-control days-number">
-                                                            <option>Выбрать</option>
-                                                            <option value="opt7">1 день</option>
-                                                            <option value="opt8">2 дня</option>
-                                                            <option value="opt9">3 дня</option>
-                                                            <option value="opt10">4 дня</option>
-                                                            <option value="opt11">5 дней</option>
-                                                            <option value="opt12">6 дней</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
-                                                <td rowspan="3" class="part-time-table-col">
-                                                    <div class="start-date">
-                                                        <p>Начало работы</p>
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
-                                                            <input type="text" class="form-control pickadate-selectors start-date-input" placeholder="Выбрать">
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Работает</td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Перерыв</td>
-                                                <td>
-                                                    <div class="working-hours">
-                                                        <div class="work-time work-time-start">
-                                                            <p>С</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                        <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                        <div class="work-time work-time-end">
-                                                            <p>До</p>
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="Выбрать">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div id="part-time-schedule">
+                                
+                                <div class="part-time-wrap">
+
+                                    <div class="part-time-item">
+                                       
+                                       <div class="form-group table-item">
+                                            <label class="control-label">Количество рабочих дней</label>
+                                            <select name="select" class="form-control days-number">
+                                                <option>Выбрать</option>
+                                                <option value="opt7">1 день</option>
+                                                <option value="opt8">2 дня</option>
+                                                <option value="opt9">3 дня</option>
+                                                <option value="opt10">4 дня</option>
+                                                <option value="opt11">5 дней</option>
+                                                <option value="opt12">6 дней</option>
+                                            </select>
+                                        </div>
+                                       
+                                        <div class="form-group table-item">
+                                            <label class="control-label">Количество выходных дней</label>
+                                            <select name="select" class="form-control days-number">
+                                                <option>Выбрать</option>
+                                                <option value="opt1">1 день</option>
+                                                <option value="opt2">2 дня</option>
+                                                <option value="opt3">3 дня</option>
+                                                <option value="opt4">4 дня</option>
+                                                <option value="opt5">5 дней</option>
+                                                <option value="opt6">6 дней</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="input-group table-item">
+                                            <label class="control-label">Дата первого дня работы</label>
+                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                            <input type="text" class="form-control pickadate-selectors start-date-input" placeholder="Выбрать">
+                                        </div>
+ 
+                                    </div>
+                                    
+                                    
+                                    <div class="part-time-item">
+                                      
+                                       <div class="part-time-content">
+                                           <p>Работа</p>
+                                           <div class="full-time-content">
+                                                <div class="input-group work-time work-time-start">
+                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                </div>
+                                                <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                <div class="input-group work-time work-time-end">
+                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="part-time-content">
+                                           <p>Перерыв</p>
+                                           <div class="full-time-content">
+                                                <div class="input-group work-time work-time-start">
+                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                </div>
+                                                <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                <div class="input-group work-time work-time-end">
+                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                    </div>
+
                                 </div>
-
 
                                 <div class="save clearfix">
-                                    <button type="button" class="btn btn-primary pull-right">сохранить</button>
+                                    <button type="submit" class="btn btn-primary btn-xs pull-right">сохранить</button>
                                 </div>
 
-                            </div>
+                            </div> 
+                            
                             <!-- /part-time employee table -->
-
+                            
                         </div>
-                    </div>
+                        
+                    </div>                 
 
                 </div>
 						
@@ -1630,7 +1554,7 @@
                                     </div>
 
                                     <div class="save clearfix">
-                                        <button type="button" class="btn btn-primary pull-right">сохранить</button>
+                                        <button type="submit" class="btn btn-primary btn-xs pull-right">сохранить</button>
                                     </div>
 
                                 </div>  
