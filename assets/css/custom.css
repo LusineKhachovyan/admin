@@ -202,7 +202,7 @@
 
 /* /save button */
 /* Schedule */
-#schedule {
+.schedule-wrap {
   display: inline-block;
 }
 
@@ -228,9 +228,6 @@
   width: 50%;
 }
 
-#full-time-schedule {
-  margin-bottom: 50px;
-}
 #full-time-schedule .full-time-wrap {
   display: -webkit-flex;
   display: flex;
@@ -318,14 +315,6 @@
   text-align: center;
   padding-top: 10px;
 }
-.check-input .checker span {
-  border: 2px solid #e6e6e6;
-}
-.check-input .checker span.checked {
-  background-color: #4CAF50;
-  border-color: #4CAF50;
-  color: #fff;
-}
 
 #part-time-schedule {
   display: none;
@@ -383,32 +372,185 @@
 }
 
 /* /schedule */
-/* Info */
-#info .info-title i {
-  font-size: 20px;
+/* Personal Info */
+#personal-info fieldset {
+  border: 1px solid #b3b3b3;
+  padding: 20px;
+}
+#personal-info fieldset legend {
+  padding: 10px;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+#personal-info input.form-control {
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 500;
+}
+#personal-info input.form-control.picker__input {
+  text-transform: none;
+  font-size: 13px;
+  font-weight: normal;
 }
 
-.employee-avatar {
-  position: absolute;
-  right: 50px;
-  top: 20px;
+#info {
+  border: 2px solid #b3b3b3;
+}
+#info .personal-info-content {
+  display: -webkit-flex;
+  display: flex;
+}
+#info .personal-info-content .personal-info {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+#info .avatar {
+  box-shadow: none;
 }
 
-.employee-info-input {
+.personal-info-date input.form-control {
+  border-bottom-style: solid;
+}
+
+.select-info {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.select-info select {
+  width: 60%;
+}
+.select-info label {
+  margin-bottom: 0;
+}
+
+.notes textarea {
+  border: 1px solid #e5e5e5;
+}
+
+.details {
+  display: -webkit-flex;
+  display: flex;
+}
+.details .details-item {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.details .details-item .select-info select {
+  width: 20%;
+}
+
+.card-details {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.card-details .card-number {
+  width: 50%;
+}
+.card-details .personal-info-date {
+  width: 45%;
+}
+
+.picker__holder {
+  width: 290px;
+}
+.picker__holder .picker__table td {
+  padding: 0 !important;
+}
+
+.info-title {
+  padding-left: 0;
+  padding-top: 0;
+}
+.info-title .residence-address-btn {
+  text-decoration: underline;
+}
+
+#registration-address {
+  border: 2px solid #b3b3b3;
+}
+
+#residence-addres {
+  border: 2px solid #b3b3b3;
+  display: none;
+}
+
+#documents {
+  border: 2px solid #b3b3b3;
+}
+#documents .documents-header {
+  padding: 0 0 20px 0;
+}
+
+/* /personal Info */
+/* Family */
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
+.family-details {
+  display: -webkit-flex;
+  display: flex;
+}
+.family-details .family-status {
+  margin-right: 40px;
+}
+.family-details .family-members-number li {
+  padding: 4px 0;
+}
+.family-details .family-members-number li span {
+  margin-left: 5px;
+}
+
+.info-table .info-table-header {
+  background-color: #d9d9d9;
+}
+.info-table td {
+  padding: 5px 20px 10px !important;
+}
+.info-table td.info-table-date .form-group {
+  margin-bottom: 0;
+}
+
+/* /family */
+/* Education */
+#languages {
+  border: 2px solid #b3b3b3;
+}
+
+#education {
+  border: 2px solid #b3b3b3;
+}
+
+.education-header {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.education-header .education-level {
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: center;
   align-items: center;
+  width: 30%;
 }
-.employee-info-input .control-label {
-  -webkit-align-self: flex-end;
-  align-self: flex-end;
-  padding: 5px;
-  font-weight: 500;
-}
-.employee-info-input input.form-control {
-  padding: 0 20px 0 10px;
-  font-size: 15px;
+.education-header .education-level label {
+  width: 70%;
+  margin-bottom: 0;
 }
 
-/* /info */
+/* /education */

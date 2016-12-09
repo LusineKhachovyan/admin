@@ -36,6 +36,7 @@
     <!-- Theme JS files -->
     <script type="text/javascript" src="assets/js/plugins/tables/footable/footable.min.js"></script>
     <script type="text/javascript" src="assets/js/pages/table_responsive.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
 
     <script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins/forms/styling/switchery.min.js"></script>
@@ -58,8 +59,6 @@
     <script type="text/javascript" src="assets/js/plugins/ui/ripple.min.js"></script>
     <!-- /theme JS files -->
     
-
-
 </head>
 
 <body>
@@ -1134,437 +1133,1598 @@
 
 			<!-- Main content -->
 			<div class="content-wrapper">
-
-				<!-- Schedule -->
-
-                <div class="panel" id="schedule">
-                   
-                    <div class="panel-heading info-title">
-                        <h5 class="panel-title"><i class="icon-design position-left pb-5"></i>График работы</h5>
-                    </div>
+                
+             <!-- Tabs with bottom line -->
+             
+                <div class="panel panel-flat">
 
                     <div class="panel-body">
                        
-                        <div class="form-group" id="schedule-type">
-                            <label class="display-block text-semibold mb-30">Тип</label>
-                            <label class="radio-inline text-semibold schedule-type">
-                                <input type="radio" name="radio-inline-left" class="styled" checked="checked" id="full-time">
-                                Фиксированный
-                            </label>
-                            <label class="radio-inline text-semibold schedule-type">
-                                <input type="radio" name="radio-inline-left" class="styled" id="part-time">
-                                Цикличний
-                            </label>
-                        </div>
-                        
-                        <div class="form-group" id="template">
-                            <div class="templates">
-                                <label class="control-label text-semibold">Шаблоны</label>
-                                <select name="select" class="form-control">
-                                    <option>Загрузить шаблон</option>
-                                    <option value="template-1">шаблон 1</option>
-                                    <option value="template-2">шаблон 2</option>
-                                    <option value="template-3">шаблон 3</option>
-                                </select>
-                            </div>
-                            <div class="template-button">
-                                <button type="submit" class="btn btn-primary btn-xs btn-template">Сохранить как шаблон</button>
-                            </div>
-                        </div>
-                        
-                        <div class="schedules">
-                            
-                            <!-- Full-time employee schedule -->
-                            
-                            <div id="full-time-schedule">
-
-                               <div class="full-time-wrap">
-
-                                    <div class="full-time-item">
-                                        <h6 class="full-time-header">Дни недели</h6>
-                                        <div class="full-time-content time-content">
-                                             <div class="time">
-                                                <p>Работа</p>
-                                                <p>Перерыв</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="full-time-item">
-                                        <h6 class="full-time-header">Понедельник</h6>
-                                        <div class="check-input">
-                                            <input type="checkbox" class="styled">
-                                        </div>    
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="full-time-item">
-                                        <h6 class="full-time-header">Вторник</h6>
-                                        <div class="check-input">
-                                            <input type="checkbox" class="styled">
-                                        </div>  
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="full-time-item">
-                                        <h6 class="full-time-header">Среда</h6>
-                                        <div class="check-input">
-                                            <input type="checkbox" class="styled">
-                                        </div>  
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="full-time-item">
-                                        <h6 class="full-time-header">Четверг</h6>
-                                        <div class="check-input">
-                                            <input type="checkbox" class="styled">
-                                        </div>  
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                     <div class="full-time-item">
-                                        <h6 class="full-time-header">Пятница</h6>
-                                        <div class="check-input">
-                                            <input type="checkbox" class="styled">
-                                        </div>  
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                     <div class="full-time-item">
-                                        <h6 class="full-time-header">Суббота</h6>
-                                        <div class="check-input">
-                                            <input type="checkbox" class="styled">
-                                        </div>  
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="full-time-item">
-                                        <h6 class="full-time-header">Воскресенье</h6>
-                                        <div class="check-input">
-                                            <input type="checkbox" class="styled">
-                                        </div>  
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                        <div class="full-time-content">
-                                            <div class="input-group work-time work-time-start">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
-                                            </div>
-                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                            <div class="input-group work-time work-time-end">
-                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="save clearfix">
-                                    <button type="submit" class="btn btn-primary btn-xs pull-right">сохранить</button>
-                                </div>
-
-                            </div>
-                            
-                            <!-- /full-time employee table -->
-
+                        <div class="tabbable">
                            
-                            <!-- Part-time employee schedule -->
+                            <ul class="nav nav-tabs nav-tabs-bottom bottom-divided">
+                                <li class="active"><a href="#personal-info" data-toggle="tab">личная информация</a></li>
+                                <li><a href="#operations" data-toggle="tab">операции</a></li>
+                                <li><a href="#schedule" data-toggle="tab">график</a></li>
+                                <li><a href="#family" data-toggle="tab">семья</a></li>
+                                <li><a href="#education-info" data-toggle="tab">образование</a></li>
+                                <li><a href="#property" data-toggle="tab">имущество</a></li>
+                            </ul>
 
-                            <div id="part-time-schedule">
-                                
-                                <div class="part-time-wrap">
+                            <div class="tab-content">
 
-                                    <div class="part-time-item">
-                                       
-                                       <div class="form-group table-item">
-                                            <label class="control-label">Количество рабочих дней</label>
-                                            <select name="select" class="form-control days-number">
-                                                <option>Выбрать</option>
-                                                <option value="opt7">1 день</option>
-                                                <option value="opt8">2 дня</option>
-                                                <option value="opt9">3 дня</option>
-                                                <option value="opt10">4 дня</option>
-                                                <option value="opt11">5 дней</option>
-                                                <option value="opt12">6 дней</option>
-                                            </select>
-                                        </div>
-                                       
-                                        <div class="form-group table-item">
-                                            <label class="control-label">Количество выходных дней</label>
-                                            <select name="select" class="form-control days-number">
-                                                <option>Выбрать</option>
-                                                <option value="opt1">1 день</option>
-                                                <option value="opt2">2 дня</option>
-                                                <option value="opt3">3 дня</option>
-                                                <option value="opt4">4 дня</option>
-                                                <option value="opt5">5 дней</option>
-                                                <option value="opt6">6 дней</option>
-                                            </select>
-                                        </div>
+                                <!-- Personal Info -->
+                
+                                <div class="tab-pane active" id="personal-info">
+
+                                    <form action="#">
                                         
-                                        <div class="input-group table-item">
-                                            <label class="control-label">Дата первого дня работы</label>
-                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
-                                            <input type="text" class="form-control pickadate-selectors start-date-input" placeholder="Выбрать">
+                                        <div class="panel-heading info-title">
+                                            <h5 class="panel-title"><i class="icon-user position-left pb-5"></i>Информация аккаунта</h5>
                                         </div>
- 
-                                    </div>
-                                    
-                                    
-                                    <div class="part-time-item">
-                                      
-                                       <div class="part-time-content">
-                                           <p>Работа</p>
-                                           <div class="full-time-content">
-                                                <div class="input-group work-time work-time-start">
-                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+
+                                        <div id="info" class="mb-20 p-20">
+
+                                            <div class="row">
+
+                                                <div class="col-md-9">
+
+                                                    <div class="row personal-info-content">
+
+                                                        <div class="col-md-4 personal-info">
+                                                            <div class="form-group">
+                                                                <label>Имя</label>
+                                                                <input type="text" class="form-control">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="display-block">Пол</label>
+
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" name="radio-inline-left" class="styled" checked="checked">
+                                                                    Мужской
+                                                                </label>
+
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" name="radio-inline-left" class="styled">
+                                                                    Женский
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4 personal-info">
+                                                            <div class="form-group">
+                                                                <label>Фамилия</label>
+                                                                <input type="text" class="form-control">
+                                                            </div> 
+                                                            <div class="personal-info-date form-group">
+                                                                <p>Дата рождения</p>
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                    <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                </div>     
+                                                            </div> 
+                                                        </div>
+
+                                                        <div class="col-md-4 personal-info">
+                                                            <div class="form-group">
+                                                                <label>Отчество</label>
+                                                                <input type="text" class="form-control">
+                                                            </div>
+                                                            <div class="form-group select-info">
+                                                                <label class="control-label">Должность</label>
+                                                                <select name="select" class="form-control">
+                                                                    <option>Выбрать</option>
+                                                                    <option value="opt7">Должность 1</option>
+                                                                    <option value="opt8">Должность 2</option>
+                                                                    <option value="opt9">Должность 3</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group select-info">
+                                                                <label class="control-label">Департамент</label>
+                                                                <select name="select" class="form-control">
+                                                                    <option>Выбрать</option>
+                                                                    <option value="opt7">Департамент 1</option>
+                                                                    <option value="opt8">Департамент 2</option>
+                                                                    <option value="opt9">Департамент 3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                    </div> 
+
+                                                    <div class="row">
+
+                                                        <div class="col-md-12">
+                                                            <div class="form-group notes">
+                                                                <label>Заметки</label>
+                                                                <textarea rows="5" cols="5" class="form-control"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>  
+
+                                                    <div class="row details">
+
+                                                        <div class="col-md-6">
+                                                            <fieldset>
+                                                                <legend class="text-semibold">
+                                                                    <i class="icon-credit-card position-left"></i>
+                                                                    Пластиковая карта
+                                                                </legend>
+                                                                <div class="card-details">
+                                                                    <div class="form-group card-number">
+                                                                        <label>Номер карты</label>
+                                                                        <input type="text" class="form-control" >
+                                                                    </div>
+                                                                    <div class="personal-info-date form-group">
+                                                                        <p>Срок действия</p>
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                            <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                        </div>     
+                                                                    </div>  
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+
+                                                        <div class="col-md-3 details-item">
+                                                            <div class="form-group">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox" class="styled" checked="checked">
+                                                                        Резидент
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox" class="styled">
+                                                                        Судимость
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3 details-item">
+                                                            <div class="form-group">
+                                                                <div class="checkbox">
+                                                                    <label>
+                                                                        <input type="checkbox" class="styled">
+                                                                        Инвалидность
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group select-info">
+                                                                <label class="control-label">Группа инвалидности</label>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="opt7">1</option>
+                                                                    <option value="opt8">2</option>
+                                                                    <option value="opt9">3</option>
+                                                                </select>
+                                                            </div>    
+                                                        </div>
+
+                                                    </div>
+
                                                 </div>
-                                                <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                <div class="input-group work-time work-time-end">
-                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>ID</label>
+                                                        <input type="text" class="form-control">
+                                                    </div> 
+                                                    <div class="thumbnail avatar">
+                                                        <div class="thumb thumb-rounded thumb-slide">
+                                                            <img src="assets/images/placeholder.jpg" alt="">
+                                                        </div>
+                                                        <div class="caption text-center">
+                                                            <ul class="icons-list mt-15">
+                                                                <li><a href="#" data-popup="tooltip" title="Twitter"><i class="icon-twitter"></i></a></li>
+                                                                <li><a href="#" data-popup="tooltip" title="Github"><i class="icon-github"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <fieldset class="phone-number">
+                                                        <legend class="text-semibold">
+                                                            <i class="icon-phone2 position-left"></i>
+                                                            Телефон
+                                                        </legend>
+                                                        <div class="form-group">
+                                                            <label>Домашний</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Мобильный</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Рабочий</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Внутренний</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                    </fieldset>
                                                 </div>
+
                                             </div>
+
                                         </div>
-                                        
-                                        <div class="part-time-content">
-                                           <p>Перерыв</p>
-                                           <div class="full-time-content">
-                                                <div class="input-group work-time work-time-start">
-                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+
+                                        <div id="registration-address" class="mb-20 p-20">
+
+                                            <div class="panel-heading info-title">
+                                                <h5 class="panel-title"><i class="icon-home8 position-left pb-5"></i>Адрес регистрации</h5>
+                                                <div class="heading-elements">
+                                                    <a href="#" class="residence-address-btn">Добавить адрес проживания</a>
                                                 </div>
-                                                <div class="work-time-divider"><i class="icon-minus2"></i></div>
-                                                <div class="input-group work-time work-time-end">
-                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                            </div>  
+
+                                            <div class="row">
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Страна</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>    
                                                 </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Регион</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>    
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Город</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>    
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Район</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>    
+                                                </div>                            
+
                                             </div>
+
+                                            <div class="row">
+
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label>Адрес</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>        
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Почтовый индекс</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>         
+                                                </div>
+
+                                            </div>
+
+
                                         </div>
-                                
-                                    </div>
+
+                                        <div id="residence-addres" class="mb-20 p-20">
+
+                                            <div class="panel-heading info-title">
+                                                <h5 class="panel-title"><i class="icon-home8 position-left pb-5"></i>Адрес проживания</h5>
+                                            </div> 
+
+                                            <div class="row">
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Страна</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>    
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Регион</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>    
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Город</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>    
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Район</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>    
+                                                </div>                            
+
+                                            </div>     
+
+                                            <div class="row">
+
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label>Адрес</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>        
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Почтовый индекс</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>         
+                                                </div>
+
+                                            </div> 
+
+                                        </div>
+
+                                        <div id="documents" class="mb-20 p-20">
+
+                                            <div class="panel-heading info-title">
+                                                <h5 class="panel-title"><i class="icon-file-text2 position-left"></i>Документы</h5>
+                                            </div>
+
+                                            <div class="row documents-header">
+                                                <div class="col-md-3 col-md-offset-1">Номер</div>
+                                                <div class="col-md-1">Выдан</div>
+                                                <div class="col-md-2">Дата выдачи</div>
+                                                <div class="col-md-2">Срок действия</div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <p>Паспорт</p>    
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" class="form-control">    
+                                                </div>
+                                                <div class="col-md-1">
+                                                     <input type="text" class="form-control">   
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="personal-info-date form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                            <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                        </div>     
+                                                    </div>        
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="personal-info-date form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                            <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                        </div>     
+                                                    </div>      
+                                                </div>
+                                            </div>  
+
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <p>Биопаспорт</p>    
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" class="form-control">    
+                                                </div>
+                                                <div class="col-md-1">
+                                                     <input type="text" class="form-control">   
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="personal-info-date form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                            <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                        </div>     
+                                                    </div>       
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="personal-info-date form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                            <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                        </div>     
+                                                    </div>    
+                                                </div>
+                                            </div>  
+
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <p>ID карта</p>    
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" class="form-control">    
+                                                </div>
+                                                <div class="col-md-1">
+                                                     <input type="text" class="form-control">   
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="personal-info-date form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                            <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                        </div>     
+                                                    </div>         
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="personal-info-date form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                            <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                        </div>     
+                                                    </div>   
+                                                </div>
+                                            </div>  
+
+                                            <div class="row pb-20 mb-20">
+                                                <div class="col-md-1">
+                                                    <p>Соц. карта</p>    
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" class="form-control">    
+                                                </div>
+                                            </div> 
+
+                                            <div class="panel-heading info-title">
+                                                <h5 class="panel-title"><i class="icon-profile position-left"></i>Иностранный паспорт</h5>
+                                            </div> 
+
+                                            <div class="row">
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Номер</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>     
+                                                </div>
+
+                                                <div class="col-md-1">
+                                                    <div class="form-group">
+                                                        <label>Выдан</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>      
+                                                </div>
+
+                                                <div class="col-md-2">
+
+                                                    <div class="personal-info-date form-group">
+                                                        <p>Дата выдачи</p>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                            <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                        </div>     
+                                                    </div>  
+
+                                                </div>
+
+                                                <div class="col-md-2">
+
+                                                   <div class="personal-info-date form-group">
+                                                        <p>Срок действия</p>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                            <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                        </div>     
+                                                    </div> 
+
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Миграционная карта</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>     
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                <div class="form-group">
+                                                        <label>Срок мигр. карты</label>
+                                                        <input type="text" class="form-control">
+                                                    </div>    
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-primary">сохранить</button>
+                                        </div>
+
+                                    </form>
 
                                 </div>
 
-                                <div class="save clearfix">
-                                    <button type="submit" class="btn btn-primary btn-xs pull-right">сохранить</button>
+                                <!-- /personal info -->
+                                
+                                
+                                <!-- Operations -->
+
+                                <div class="tab-pane" id="operations">
+                                    
+                                </div>
+                                
+                                <!-- /operations -->
+                                
+                                
+                                <!-- Schedule -->
+
+                                <div class="tab-pane" id="schedule">
+                                        
+                                    <div class="schedule-wrap">  
+                                            
+                                        <div class="panel-heading info-title">    
+                                            <h5 class="panel-title"><i class="icon-design position-left pb-5"></i>График работы</h5>
+                                        </div>
+                 
+                                        <div class="form-group" id="schedule-type">
+                                            <label class="display-block text-semibold mb-30">Тип</label>
+                                            <label class="radio-inline text-semibold schedule-type">
+                                                <input type="radio" name="radio-inline-left" class="styled" checked="checked" id="full-time">
+                                                Фиксированный
+                                            </label>
+                                            <label class="radio-inline text-semibold schedule-type">
+                                                <input type="radio" name="radio-inline-left" class="styled" id="part-time">
+                                                Цикличний
+                                            </label>
+                                        </div>
+
+                                        <div class="form-group" id="template">
+                                            <div class="templates">
+                                                <label class="control-label text-semibold">Шаблоны</label>
+                                                <select name="select" class="form-control">
+                                                    <option>Загрузить шаблон</option>
+                                                    <option value="template-1">шаблон 1</option>
+                                                    <option value="template-2">шаблон 2</option>
+                                                    <option value="template-3">шаблон 3</option>
+                                                </select>
+                                            </div>
+                                            <div class="template-button">
+                                                <button type="submit" class="btn btn-primary btn-xs btn-template">Сохранить как шаблон</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="schedules">
+
+                                            <!-- Full-time employee schedule -->
+
+                                            <div id="full-time-schedule">
+
+                                               <div class="full-time-wrap">
+
+                                                    <div class="full-time-item">
+                                                        <h6 class="full-time-header">Дни недели</h6>
+                                                        <div class="full-time-content time-content">
+                                                             <div class="time">
+                                                                <p>Работа</p>
+                                                                <p>Перерыв</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="full-time-item">
+                                                        <h6 class="full-time-header">Понедельник</h6>
+                                                        <div class="check-input">
+                                                            <input type="checkbox" class="styled">
+                                                        </div>    
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="full-time-item">
+                                                        <h6 class="full-time-header">Вторник</h6>
+                                                        <div class="check-input">
+                                                            <input type="checkbox" class="styled">
+                                                        </div>  
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="full-time-item">
+                                                        <h6 class="full-time-header">Среда</h6>
+                                                        <div class="check-input">
+                                                            <input type="checkbox" class="styled">
+                                                        </div>  
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="full-time-item">
+                                                        <h6 class="full-time-header">Четверг</h6>
+                                                        <div class="check-input">
+                                                            <input type="checkbox" class="styled">
+                                                        </div>  
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                     <div class="full-time-item">
+                                                        <h6 class="full-time-header">Пятница</h6>
+                                                        <div class="check-input">
+                                                            <input type="checkbox" class="styled">
+                                                        </div>  
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                     <div class="full-time-item">
+                                                        <h6 class="full-time-header">Суббота</h6>
+                                                        <div class="check-input">
+                                                            <input type="checkbox" class="styled">
+                                                        </div>  
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="full-time-item">
+                                                        <h6 class="full-time-header">Воскресенье</h6>
+                                                        <div class="check-input">
+                                                            <input type="checkbox" class="styled">
+                                                        </div>  
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                        <div class="full-time-content">
+                                                            <div class="input-group work-time work-time-start">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                            </div>
+                                                            <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                            <div class="input-group work-time work-time-end">
+                                                                <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="save clearfix">
+                                                    <button type="submit" class="btn btn-primary btn-xs pull-right">сохранить</button>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- /full-time employee table -->
+
+
+                                            <!-- Part-time employee schedule -->
+
+                                            <div id="part-time-schedule">
+
+                                                <div class="part-time-wrap">
+
+                                                    <div class="part-time-item">
+
+                                                       <div class="form-group table-item">
+                                                            <label class="control-label">Количество рабочих дней</label>
+                                                            <select name="select" class="form-control days-number">
+                                                                <option>Выбрать</option>
+                                                                <option value="opt7">1 день</option>
+                                                                <option value="opt8">2 дня</option>
+                                                                <option value="opt9">3 дня</option>
+                                                                <option value="opt10">4 дня</option>
+                                                                <option value="opt11">5 дней</option>
+                                                                <option value="opt12">6 дней</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group table-item">
+                                                            <label class="control-label">Количество выходных дней</label>
+                                                            <select name="select" class="form-control days-number">
+                                                                <option>Выбрать</option>
+                                                                <option value="opt1">1 день</option>
+                                                                <option value="opt2">2 дня</option>
+                                                                <option value="opt3">3 дня</option>
+                                                                <option value="opt4">4 дня</option>
+                                                                <option value="opt5">5 дней</option>
+                                                                <option value="opt6">6 дней</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="input-group table-item">
+                                                            <label class="control-label">Дата первого дня работы</label>
+                                                            <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                            <input type="text" class="form-control pickadate-selectors start-date-input" placeholder="Выбрать">
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div class="part-time-item">
+
+                                                       <div class="part-time-content">
+                                                           <p>Работа</p>
+                                                           <div class="full-time-content">
+                                                                <div class="input-group work-time work-time-start">
+                                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                                </div>
+                                                                <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                                <div class="input-group work-time work-time-end">
+                                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="part-time-content">
+                                                           <p>Перерыв</p>
+                                                           <div class="full-time-content">
+                                                                <div class="input-group work-time work-time-start">
+                                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="С">
+                                                                </div>
+                                                                <div class="work-time-divider"><i class="icon-minus2"></i></div>
+                                                                <div class="input-group work-time work-time-end">
+                                                                    <input type="text" class="form-control pickatime-events work-time-input" placeholder="До">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="save clearfix">
+                                                    <button type="submit" class="btn btn-primary btn-xs pull-right">сохранить</button>
+                                                </div>
+
+                                            </div> 
+
+                                            <!-- /part-time employee table -->
+
+                                        </div>
+                                        
+                                    </div>                
+
                                 </div>
 
-                            </div> 
-                            
-                            <!-- /part-time employee table -->
+                                <!-- /schedule -->
+                                
+
+                                <!-- Family -->
+                
+                                <div class="tab-pane"  id="family">
+
+                                    <form action="#">
+
+                                        <div class="panel-heading info-title">
+                                            <h5 class="panel-title"><i class="fa fa-users position-left pb-5"></i>Семья</h5>
+                                        </div>
+
+                                        <div id="family-info" class="mb-20">
+
+                                            <div class="family-details">
+
+                                                <div class="family-status">
+                                                    <div class="form-group">
+                                                        <label class="control-label text-semibold">Семейное положение</label>
+                                                        <select name="select" class="form-control">
+                                                            <option value="status-1">Замужем/женат</option>
+                                                            <option value="status-2">Разведен/разведена</option>
+                                                            <option value="status-3">Не замужем/не женат</option>
+                                                            <option value="status-4">Состою в гражданском браке</option>
+                                                        </select>
+                                                    </div>    
+                                                </div>
+
+                                                <div class="family-members-number">
+                                                    <ul class="list-unstyled">
+                                                        <li>Количество детей: <span class="badge badge-primary">3</span></li>
+                                                        <li>Количество несовершеннолетних детей: <span class="badge badge-primary">1</span></li>
+                                                        <li>Количество членов в семье: <span class="badge badge-primary">7</span></li>
+                                                    </ul>    
+                                                </div>
+
+                                            </div>
+
+                                            <div class="family-members">
+
+                                                <table class="table datatable-basic table-striped table-framed table-columned info-table">
+                                                    <thead class="info-table-header">
+                                                        <tr>
+                                                            <th style="width: 30%">Член семьи</th>
+                                                            <th>Имя</th>
+                                                            <th style="width: 30%">Дата рождения</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="member-1">Жена</option>
+                                                                    <option value="member-2">Ребенок</option>
+                                                                    <option value="member-3">Мать</option>
+                                                                    <option value="member-4">Отец</option>
+                                                                    <option value="member-5">Брат</option>
+                                                                    <option value="member-6">Сестра</option>
+                                                                </select>
+                                                            </td>
+                                                            <td contenteditable="true" class="text-capitalize"></td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>     
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="member-1">Жена</option>
+                                                                    <option value="member-2">Ребенок</option>
+                                                                    <option value="member-3">Мать</option>
+                                                                    <option value="member-4">Отец</option>
+                                                                    <option value="member-5">Брат</option>
+                                                                    <option value="member-6">Сестра</option>
+                                                                </select>
+                                                            </td>
+                                                            <td contenteditable="true" class="text-capitalize"></td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>     
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="member-1">Жена</option>
+                                                                    <option value="member-2">Ребенок</option>
+                                                                    <option value="member-3">Мать</option>
+                                                                    <option value="member-4">Отец</option>
+                                                                    <option value="member-5">Брат</option>
+                                                                    <option value="member-6">Сестра</option>
+                                                                </select>
+                                                            </td>
+                                                            <td contenteditable="true" class="text-capitalize"></td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>     
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="member-1">Жена</option>
+                                                                    <option value="member-2">Ребенок</option>
+                                                                    <option value="member-3">Мать</option>
+                                                                    <option value="member-4">Отец</option>
+                                                                    <option value="member-5">Брат</option>
+                                                                    <option value="member-6">Сестра</option>
+                                                                </select>
+                                                            </td>
+                                                            <td contenteditable="true" class="text-capitalize"></td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>     
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="member-1">Жена</option>
+                                                                    <option value="member-2">Ребенок</option>
+                                                                    <option value="member-3">Мать</option>
+                                                                    <option value="member-4">Отец</option>
+                                                                    <option value="member-5">Брат</option>
+                                                                    <option value="member-6">Сестра</option>
+                                                                </select>
+                                                            </td>
+                                                            <td contenteditable="true" class="text-capitalize"></td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>     
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="member-1">Жена</option>
+                                                                    <option value="member-2">Ребенок</option>
+                                                                    <option value="member-3">Мать</option>
+                                                                    <option value="member-4">Отец</option>
+                                                                    <option value="member-5">Брат</option>
+                                                                    <option value="member-6">Сестра</option>
+                                                                </select>
+                                                            </td>
+                                                            <td contenteditable="true" class="text-capitalize"></td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>     
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-primary">сохранить</button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                                <!-- /family -->
+                                
+                                
+                                <!-- Education -->
+                
+                                <div class="tab-pane" id="education-info">
+
+                                    <form action="#">
+
+                                        <div id="languages" class="mb-20 p-20">
+
+                                                <div class="panel-heading info-title">
+                                                    <h5 class="panel-title"><i class="fa fa-language position-left pb-5"></i>Языки</h5>
+                                                </div>
+
+                                                <div class="languages">
+
+                                                    <table class="table datatable-basic table-striped table-framed table-columned info-table">
+                                                        <thead class="info-table-header">
+                                                            <tr>
+                                                                <th style="width: 180px">Язык</th>
+                                                                <th style="width: 180px">Уровень разговорный</th>
+                                                                <th style="width: 180px">Уровень письма</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="language-1">Русский</option>
+                                                                        <option value="language-2">Армянский</option>
+                                                                        <option value="language-3">Английский</option>
+                                                                        <option value="language-4">Французский</option>
+                                                                        <option value="language-5">Другое</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="skill-1">Родной</option>
+                                                                        <option value="skill-2">Хорошо</option>
+                                                                        <option value="skill-3">Плохо</option>
+                                                                        <option value="skill-4">Очень плохо</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="skill-1">Родной</option>
+                                                                        <option value="skill-2">Хорошо</option>
+                                                                        <option value="skill-3">Плохо</option>
+                                                                        <option value="skill-4">Очень плохо</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="language-1">Русский</option>
+                                                                        <option value="language-2">Армянский</option>
+                                                                        <option value="language-3">Английский</option>
+                                                                        <option value="language-4">Французский</option>
+                                                                        <option value="language-5">Другое</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="skill-1">Родной</option>
+                                                                        <option value="skill-2">Хорошо</option>
+                                                                        <option value="skill-3">Плохо</option>
+                                                                        <option value="skill-4">Очень плохо</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="skill-1">Родной</option>
+                                                                        <option value="skill-2">Хорошо</option>
+                                                                        <option value="skill-3">Плохо</option>
+                                                                        <option value="skill-4">Очень плохо</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="language-1">Русский</option>
+                                                                        <option value="language-2">Армянский</option>
+                                                                        <option value="language-3">Английский</option>
+                                                                        <option value="language-4">Французский</option>
+                                                                        <option value="language-5">Другое</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="skill-1">Родной</option>
+                                                                        <option value="skill-2">Хорошо</option>
+                                                                        <option value="skill-3">Плохо</option>
+                                                                        <option value="skill-4">Очень плохо</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="skill-1">Родной</option>
+                                                                        <option value="skill-2">Хорошо</option>
+                                                                        <option value="skill-3">Плохо</option>
+                                                                        <option value="skill-4">Очень плохо</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="language-1">Русский</option>
+                                                                        <option value="language-2">Армянский</option>
+                                                                        <option value="language-3">Английский</option>
+                                                                        <option value="language-4">Французский</option>
+                                                                        <option value="language-5">Другое</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="skill-1">Родной</option>
+                                                                        <option value="skill-2">Хорошо</option>
+                                                                        <option value="skill-3">Плохо</option>
+                                                                        <option value="skill-4">Очень плохо</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="skill-1">Родной</option>
+                                                                        <option value="skill-2">Хорошо</option>
+                                                                        <option value="skill-3">Плохо</option>
+                                                                        <option value="skill-4">Очень плохо</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="language-1">Русский</option>
+                                                                        <option value="language-2">Армянский</option>
+                                                                        <option value="language-3">Английский</option>
+                                                                        <option value="language-4">Французский</option>
+                                                                        <option value="language-5">Другое</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="skill-1">Родной</option>
+                                                                        <option value="skill-2">Хорошо</option>
+                                                                        <option value="skill-3">Плохо</option>
+                                                                        <option value="skill-4">Очень плохо</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <select name="select" class="form-control">
+                                                                        <option></option>
+                                                                        <option value="skill-1">Родной</option>
+                                                                        <option value="skill-2">Хорошо</option>
+                                                                        <option value="skill-3">Плохо</option>
+                                                                        <option value="skill-4">Очень плохо</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+
+
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+
+                                            </div>
+
+                                        <div id="education" class="mb-20 p-20">
+
+                                            <div class="education-header">
+
+                                                <div class="panel-heading info-title">
+                                                    <h5 class="panel-title"><i class="fa fa-building position-left pb-5"></i>Образование</h5>
+                                                </div>
+
+                                                <div class="form-group education-level">
+                                                    <label class="control-label text-semibold mr-20">Уровень образования</label>
+                                                    <select name="select" class="form-control">
+                                                        <option value="level-1">Высшее</option>
+                                                        <option value="level-2">Среднее</option>
+                                                    </select>
+                                                </div>    
+
+                                            </div>
+
+                                            <div class="education">
+
+                                                <table class="table datatable-basic table-striped table-framed table-columned info-table">
+                                                    <thead class="info-table-header">
+                                                        <tr>
+                                                            <th>Учебное заведение</th>
+                                                            <th>Отдел</th>
+                                                            <th>Специальность</th>
+                                                            <th style="width: 200px;">Ученая степень</th>
+                                                            <th style="width: 200px;">Начало</th>
+                                                            <th style="width: 200px;">Конец</th>
+                                                            <th>Номер сертификата</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td contenteditable="true"></td>
+                                                            <td contenteditable="true"></td>
+                                                            <td contenteditable="true"></td>
+                                                            <td>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="degree-1">Бакалавр</option>
+                                                                    <option value="degree-2">Магистр</option>
+                                                                    <option value="degree-3">Доктор философии</option>
+                                                                </select>
+                                                            </td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>       
+                                                            </td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>      
+                                                            </td>
+                                                            <td contenteditable="true"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td contenteditable="true"></td>
+                                                            <td contenteditable="true"></td>
+                                                            <td contenteditable="true"></td>
+                                                            <td>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="degree-1">Бакалавр</option>
+                                                                    <option value="degree-2">Магистр</option>
+                                                                    <option value="degree-3">Доктор философии</option>
+                                                                </select>
+                                                            </td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>       
+                                                            </td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>      
+                                                            </td>
+                                                            <td contenteditable="true"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td contenteditable="true"></td>
+                                                            <td contenteditable="true"></td>
+                                                            <td contenteditable="true"></td>
+                                                            <td>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="degree-1">Бакалавр</option>
+                                                                    <option value="degree-2">Магистр</option>
+                                                                    <option value="degree-3">Доктор философии</option>
+                                                                </select>
+                                                            </td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>       
+                                                            </td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>      
+                                                            </td>
+                                                            <td contenteditable="true"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td contenteditable="true"></td>
+                                                            <td contenteditable="true"></td>
+                                                            <td contenteditable="true"></td>
+                                                            <td>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="degree-1">Бакалавр</option>
+                                                                    <option value="degree-2">Магистр</option>
+                                                                    <option value="degree-3">Доктор философии</option>
+                                                                </select>
+                                                            </td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>       
+                                                            </td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>      
+                                                            </td>
+                                                            <td contenteditable="true"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td contenteditable="true"></td>
+                                                            <td contenteditable="true"></td>
+                                                            <td contenteditable="true"></td>
+                                                            <td>
+                                                                <select name="select" class="form-control">
+                                                                    <option></option>
+                                                                    <option value="degree-1">Бакалавр</option>
+                                                                    <option value="degree-2">Магистр</option>
+                                                                    <option value="degree-3">Доктор философии</option>
+                                                                </select>
+                                                            </td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>       
+                                                            </td>
+                                                            <td class="info-table-date">
+                                                                <div class="personal-info-date form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                        <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                    </div>     
+                                                                </div>      
+                                                            </td>
+                                                            <td contenteditable="true"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-primary">сохранить</button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                                <!-- /education -->
+                                
+                               
+                                <!-- Property -->
+                
+                                <div class="tab-pane" id="property">
+
+                                    <form action="#">
+
+                                        <div class="property-table mb-20">
+
+                                            <div class="panel-heading info-title">
+                                                <h5 class="panel-title"><i class="fa fa-desktop position-left pb-5"></i>Имущество</h5>
+                                            </div>
+
+                                            <table class="table datatable-basic table-striped table-framed table-columned info-table">
+                                                <thead class="info-table-header">
+                                                    <tr>
+                                                        <th>Название</th>
+                                                        <th style="width: 150px">Количество</th>
+                                                        <th>Принял</th>
+                                                        <th>Сдал</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td contenteditable="true"></td>
+                                                        <td contenteditable="true"></td>
+                                                        <td class="info-table-date">
+                                                            <div class="personal-info-date form-group">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                    <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                </div>     
+                                                            </div>       
+                                                        </td>
+                                                        <td class="info-table-date">
+                                                            <div class="personal-info-date form-group">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                    <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                </div>     
+                                                            </div>      
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td contenteditable="true"></td>
+                                                        <td contenteditable="true"></td>
+                                                        <td class="info-table-date">
+                                                            <div class="personal-info-date form-group">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                    <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                </div>     
+                                                            </div>       
+                                                        </td>
+                                                        <td class="info-table-date">
+                                                            <div class="personal-info-date form-group">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                    <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                </div>     
+                                                            </div>      
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td contenteditable="true"></td>
+                                                        <td contenteditable="true"></td>
+                                                        <td class="info-table-date">
+                                                            <div class="personal-info-date form-group">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                    <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                </div>     
+                                                            </div>       
+                                                        </td>
+                                                        <td class="info-table-date">
+                                                            <div class="personal-info-date form-group">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                    <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                </div>     
+                                                            </div>      
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td contenteditable="true"></td>
+                                                        <td contenteditable="true"></td>
+                                                        <td class="info-table-date">
+                                                            <div class="personal-info-date form-group">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                    <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                </div>     
+                                                            </div>       
+                                                        </td>
+                                                        <td class="info-table-date">
+                                                            <div class="personal-info-date form-group">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                    <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                </div>     
+                                                            </div>      
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td contenteditable="true"></td>
+                                                        <td contenteditable="true"></td>
+                                                        <td class="info-table-date">
+                                                            <div class="personal-info-date form-group">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                    <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                </div>     
+                                                            </div>       
+                                                        </td>
+                                                        <td class="info-table-date">
+                                                            <div class="personal-info-date form-group">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon"><i class="icon-calendar2"></i></span>
+                                                                    <input type="text" class="form-control pickadate-selectors" placeholder="Выбрать">
+                                                                </div>     
+                                                            </div>      
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-primary">сохранить</button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                                <!-- /property -->      
+
+                            </div>
                             
                         </div>
                         
-                    </div>                 
-
+                    </div>
+                    
                 </div>
 						
-				<!-- /schedule -->
-				
-               
-                <!-- Info -->
-                
-                <div class="row" id="info">
-                    <div class="col-md-8">
-                        <form action="#" class="form-horizontal">
-                            <div class="panel registration-form">
-
-                                <div class="panel-heading info-title">
-                                    <h5 class="panel-title"><i class="icon-user position-left pb-5"></i>Информация аккаунта</h5>
-                                </div>
-
-                                <div class="panel-body">
-                                    <div class="info-input-wrap clearfix">
-                                        <div class="col-md-8">
-                                            <div class="form-group employee-info-input">
-                                                <label class="control-label">Имя</label>
-                                                <input type="text" name="name" class="form-control text-capitalize">
-                                                <div class="form-control-feedback">
-                                                    <i class="icon-user-check text-muted"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="form-group employee-info-input">
-                                                <label class="control-label">Фамилия</label>
-                                                <input type="text" name="surname" class="form-control text-capitalize">
-                                                <div class="form-control-feedback">
-                                                    <i class="icon-user-check text-muted"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="form-group employee-info-input">
-                                                <label class="control-label">Отчество</label>
-                                                <input type="text" name="patronymic" class="form-control text-capitalize">
-                                                <div class="form-control-feedback">
-                                                    <i class="icon-user-check text-muted"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="employee-avatar">
-                                            <a href="#" class="pull-right"><img src="assets/images/placeholder.jpg" class="img-circle img-responsive" alt="" width="150" height="150"></a>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group employee-info-input">
-                                                <label class="control-label">Эл.почта</label>
-                                                <input type="email" name="email" class="form-control">
-                                                <div class="form-control-feedback">
-                                                    <i class="icon-mail5 text-muted"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group employee-info-input">
-                                                <label class="control-label">Телефон</label>
-                                                <input type="text" class="form-control">
-                                                <div class="form-control-feedback">
-                                                    <i class="icon-phone2 text-muted"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5 col-md-offset-1">
-                                            <div class="form-group employee-info-input">
-                                                <label class="control-label">Статус</label>
-                                                <select name="select" class="form-control">
-                                                    <option value="opt1">Активный</option>
-                                                    <option value="opt2">Неактивный</option>
-                                                </select> 
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                          <ul class="list-unstyled">
-                                               <li class="position pt-10">
-                                                   <span class="text-semibold">Должность пользователя&#58;</span>
-                                                   <span class="label label-primary">Должность</span>
-                                               </li>
-                                               <li class="department pt-10">
-                                                   <span class="text-semibold">Департамент пользователя&#58;</span>
-                                                   <span class="label label-primary">Департамент</span>
-                                              </li>
-                                          </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="save clearfix">
-                                        <button type="submit" class="btn btn-primary btn-xs pull-right">сохранить</button>
-                                    </div>
-
-                                </div>  
-
-                            </div>
-                        </form>
-                    </div>
-                </div>              
-                
-                <!-- /info -->
+				<!-- /tabs with bottom line -->
 
 			</div>
 			<!-- /main content -->
